@@ -1,4 +1,4 @@
-# FilenameChanger
+# Filename Changer
 Simple massive filename changer for Windows
 
 - Features:
