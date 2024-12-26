@@ -59,13 +59,6 @@ namespace FilenameChanger
 				return;
 			}
 
-			// Check if char to replace and new characters is empty
-			if (txtCharToReplace.Text.Length == 0)
-			{
-				MessageBox.Show("Please enter chars to replace.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-
 			// Check if directory exists
 			if (!Directory.Exists(txtDirectory.Text))
 			{
@@ -118,7 +111,10 @@ namespace FilenameChanger
 
 		private string GetNewFilename(string fileNameWithoutExtension, string extension)
 		{
-			string newFileName = fileNameWithoutExtension.Replace(txtCharToReplace.Text, txtNewCharacters.Text);
+			string newFileName = fileNameWithoutExtension;
+
+			if (txtCharToReplace.Text.Length > 0)
+				newFileName = fileNameWithoutExtension.Replace(txtCharToReplace.Text, txtNewCharacters.Text);
 
 			if (cbTrimStart.CheckState == CheckState.Checked)
 				newFileName = newFileName.TrimStart();
@@ -127,11 +123,6 @@ namespace FilenameChanger
 				newFileName = newFileName.TrimEnd();
 
 			return newFileName + extension;
-		}
-
-		private void txtCharToReplace_TextChanged(object sender, EventArgs e)
-		{
-			btnReplace.Enabled = txtCharToReplace.Text.Length > 0;
 		}
 
 		private void ToggleCheckState(Guna2CustomCheckBox checkBox)

@@ -320,7 +320,6 @@
 			this.txtCharToReplace.ShadowDecoration.Parent = this.txtCharToReplace;
 			this.txtCharToReplace.Size = new System.Drawing.Size(302, 25);
 			this.txtCharToReplace.TabIndex = 1;
-			this.txtCharToReplace.TextChanged += new System.EventHandler(this.txtCharToReplace_TextChanged);
 			// 
 			// btnReplace
 			// 
